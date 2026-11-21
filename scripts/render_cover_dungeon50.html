@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; width: 630px; height: 500px; overflow: hidden;
+      background: #10151e; color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .cover {
+      width: 630px; height: 500px; padding: 32px 34px;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(245, 158, 11, 0.25), transparent 46%),
+        radial-gradient(circle at 14% 85%, rgba(56, 189, 248, 0.22), transparent 46%),
+        linear-gradient(155deg, #131a24 0%, #090c11 100%);
+      display: flex; flex-direction: column; justify-content: space-between;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+    .badges { display: flex; gap: 10px; }
+    .pill { padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .pill-amber { background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(245, 158, 11, 0.5); color: #fbbf24; }
+    .pill-cyan { background: rgba(56, 189, 248, 0.16); border: 1px solid rgba(56, 189, 248, 0.45); color: #7dd3fc; }
+    .hero h1 { margin: 0 0 8px; font-size: 46px; line-height: 1.03; font-weight: 900; letter-spacing: -0.02em; }
+    .hero h1 span { color: #f59e0b; }
+    .hero p { margin: 0; font-size: 18px; color: #cbd5e1; font-weight: 600; }
+    .preview-card {
+      background: #ffffff; color: #0f172a; border-radius: 12px; padding: 14px 18px;
+      display: grid; grid-template-columns: 1.25fr 1fr; gap: 14px; align-items: center;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.5);
+    }
+    .preview-card ul { margin: 0; padding-left: 16px; font-size: 13px; font-weight: 600; line-height: 1.5; }
+    .mini-grid {
+      display: grid; grid-template-columns: repeat(7, 20px); gap: 2px; justify-content: center;
+      padding: 6px; background: #f8fafc; border: 1.5px solid #334155; border-radius: 6px;
+    }
+    .c { width: 20px; height: 20px; border: 1px solid #cbd5e1; font-size: 10px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+    .w { background: #1e293b; border-color: #1e293b; }
+    .s { background: #dcfce7; color: #15803d; }
+    .k { background: #fef9c3; color: #b45309; }
+    .b { background: #991b1b; color: #ffffff; }
+    .e { background: #dbeafe; color: #1d4ed8; }
+    .bottom { display: flex; justify-content: space-between; align-items: center; }
+    .cta { background: #f59e0b; color: #0b0f14; font-weight: 900; font-size: 15px; padding: 10px 16px; border-radius: 9px; }
+    .brand { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="badges">
+      <span class="pill pill-amber">SOLO ROLL &amp; WRITE · 2D6</span>
+      <span class="pill pill-cyan">PRINT &amp; PLAY · ZERO AI</span>
+    </div>
+    <div class="hero">
+      <h1>POCKET <span>DUNGEON</span></h1>
+      <p>50 Verified Solo Crawl Maps · Color &amp; Ink-Saver B&amp;W</p>
+    </div>
+    <div class="preview-card">
+      <ul>
+        <li>5 Biomes × 10 Unique Maps</li>
+        <li>BFS-Verified Solvable Paths</li>
+        <li>US Letter + Global A4 PDFs</li>
+        <li>1-Page Visual Rulebook Included</li>
+      </ul>
+      <div class="mini-grid">
+        <div class="c w"></div><div class="c w"></div><div class="c k">K</div><div class="c"></div><div class="c w"></div><div class="c b">B</div><div class="c e">E</div>
+        <div class="c">$</div><div class="c"></div><div class="c"></div><div class="c">M3</div><div class="c"></div><div class="c"></div><div class="c w"></div>
+        <div class="c w"></div><div class="c">^</div><div class="c w"></div><div class="c w"></div><div class="c"></div><div class="c">+</div><div class="c w"></div>
+        <div class="c s">S</div><div class="c"></div><div class="c">M2</div><div class="c"></div><div class="c"></div><div class="c w"></div><div class="c w"></div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span class="cta">FREE 3-MAP SAMPLE · FULL 50 MAPS $2.99</span>
+      <span class="brand">PRINT-PLAY LAB</span>
+    </div>
+  </div>
+</body>
+</html>

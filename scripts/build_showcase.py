@@ -1,0 +1,181 @@
+#!/usr/bin/env python3
+"""Build Each-Touch Print-Play Lab public GitHub Pages storefront."""
+
+from __future__ import annotations
+
+import html
+import json
+import shutil
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DOCS = ROOT / "docs"
+CATALOG_PATH = ROOT / "books-catalog.json"
+BASE_URL = "https://each-touch.github.io/print-play-lab"
+
+
+def _esc(s: object) -> str:
+    return html.escape(str(s or ""), quote=True)
+
+
+def main() -> int:
+    books = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
+    DOCS.mkdir(parents=True, exist_ok=True)
+    (DOCS / ".nojekyll").touch()
+
+    b = books[0]
+    itch_url = b.get("itchUrl") or "https://each-touch.itch.io/"
+
+    spread_src = ROOT / "releases" / b["slug"] / "screenshots" / "preview_spread_1280x720.png"
+    if spread_src.is_file():
+        img_dir = DOCS / "images"
+        img_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(spread_src, img_dir / "pocket_dungeon_spread.png")
+
+    hl_html = "".join(f"<li>{_esc(h)}</li>" for h in b.get("highlights", []))
+    ld_json = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": b["shortTitle"],
+            "description": b["tagline"],
+            "brand": {"@type": "Brand", "name": "Each-Touch Print-Play Lab"},
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "price": str(b["priceUsd"]),
+                "availability": "https://schema.org/InStock",
+                "url": itch_url,
+            },
+        },
+        ensure_ascii=False,
+    )
+
+    page_html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Each-Touch Print-Play Lab — Solo Roll &amp; Write Tabletop Games &amp; Verified Puzzle PDFs</title>
+  <meta name="description" content="Printable solo roll-and-write dungeon crawl maps and verified logic puzzle books (US Letter &amp; A4, Color &amp; Ink-Saver B&amp;W). Download free 3-map sample PDF." />
+  <link rel="canonical" href="{BASE_URL}/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f59e0b'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-weight='800' font-size='14' fill='%230b0f14'%3EPP%3C/text%3E%3C/svg%3E" />
+  <script type="application/ld+json">{ld_json}</script>
+  <style>
+    :root {{
+      --bg: #0b0f14; --surface: #131922; --panel: #19212c; --border: rgba(148,163,184,0.18);
+      --text: #f1f5f9; --sec: #b6c4d6; --muted: #8b9bb4; --amber: #f59e0b; --cyan: #38bdf8; --green: #10b981;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }}
+    * {{ box-sizing: border-box; }}
+    html, body {{ margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; line-height: 1.5; overflow-x: hidden; }}
+    a {{ color: var(--cyan); text-decoration: none; }}
+    a:hover {{ text-decoration: underline; }}
+    .topbar {{ display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 18px; background: var(--surface); border-bottom: 1px solid var(--border); flex-wrap: wrap; }}
+    .brand {{ display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-weight: 800; font-size: 15px; }}
+    .mark {{ width: 28px; height: 28px; border-radius: 7px; background: linear-gradient(135deg, #f59e0b, #d97706); color: #0b0f14; display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 800; font-size: 13px; }}
+    .badges {{ display: flex; gap: 8px; flex-wrap: wrap; }}
+    .badge {{ padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; border: 1px solid var(--border); background: var(--panel); color: var(--sec); white-space: nowrap; }}
+    .badge-amber {{ background: rgba(245,158,11,0.14); border-color: rgba(245,158,11,0.38); color: var(--amber); }}
+    .badge-cyan {{ background: rgba(56,189,248,0.14); border-color: rgba(56,189,248,0.38); color: var(--cyan); }}
+    .badge-green {{ background: rgba(16,185,129,0.14); border-color: rgba(16,185,129,0.38); color: var(--green); }}
+    .wrap {{ max-width: 1180px; margin: 0 auto; padding: 18px 18px 28px; }}
+    .hero {{ background: radial-gradient(circle at 86% 18%, rgba(245,158,11,0.16), transparent 45%), var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 22px; align-items: center; }}
+    .hero h1 {{ margin: 8px 0 8px; font-size: clamp(22px, 3vw, 32px); line-height: 1.15; }}
+    .hero p {{ margin: 0 0 14px; color: var(--sec); font-size: 14.5px; }}
+    .btn {{ display: inline-flex; align-items: center; justify-content: center; padding: 9px 15px; border-radius: 7px; font-weight: 700; font-size: 13px; border: 1px solid rgba(148,163,184,0.3); background: var(--panel); color: var(--text); }}
+    .btn:hover {{ text-decoration: none; border-color: var(--cyan); }}
+    .btn-primary {{ background: var(--amber); border-color: var(--amber); color: #0b0f14; }}
+    .hero-stats {{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }}
+    .stat {{ background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 11px 13px; }}
+    .stat strong {{ display: block; color: var(--amber); font-size: 15px; }}
+    .stat span {{ font-size: 12px; color: var(--sec); }}
+    .section-title {{ margin: 22px 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }}
+    .book-card {{ background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 18px; align-items: center; }}
+    .book-card h2 {{ margin: 6px 0 8px; font-size: 20px; }}
+    .book-card p {{ margin: 0 0 10px; color: var(--sec); }}
+    .book-card ul {{ margin: 0 0 14px; padding-left: 18px; color: var(--sec); font-size: 13px; }}
+    .spread-img {{ width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); display: block; }}
+    .ecosystem {{ margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 12.5px; color: var(--sec); }}
+    .eco-links {{ display: flex; gap: 12px; flex-wrap: wrap; }}
+    @media (max-width: 860px) {{
+      .hero, .book-card {{ grid-template-columns: 1fr; padding: 16px; }}
+    }}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="mark">PP</span><span>Each-Touch Print-Play Lab</span></a>
+    <div class="badges">
+      <span class="badge badge-amber">US Letter + A4 PDFs</span>
+      <span class="badge badge-green">Algorithm-Verified Solvable</span>
+      <span class="badge badge-cyan">Zero Generative AI</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="badge badge-amber">Printable Solo Tabletop &amp; Logic Puzzle Books</span>
+        <h1>Print, Grab 2d6 &amp; Play: Verified Solo Crawl &amp; Puzzle PDFs</h1>
+        <p>Every map and puzzle book is procedurally generated and mathematically verified solvable—bundled in Color + Ink-Saver B&amp;W for both US Letter and Global A4 printers.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="{_esc(itch_url)}" target="_blank" rel="noopener noreferrer">Buy Full 50-Map Pack ($2.99)</a>
+          <a class="btn" href="./{_esc(b['demoFile'])}" download>Download Free 3-Map Sample PDF</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>50 Maps</strong><span>5 unique dungeon biomes</span></div>
+        <div class="stat"><strong>3 Editions</strong><span>Letter Color, Letter B&amp;W, A4 B&amp;W</span></div>
+        <div class="stat"><strong>BFS Verified</strong><span>100% guaranteed solvable paths</span></div>
+        <div class="stat"><strong>Free Demo</strong><span>3 complete playable sample sheets</span></div>
+      </div>
+    </section>
+
+    <div class="section-title">Flagship Solo Roll &amp; Write Release</div>
+    <section class="book-card">
+      <div>
+        <span class="badge badge-cyan">{_esc(b['category'])} · ${b['priceUsd']:.2f} USD</span>
+        <h2>{_esc(b['shortTitle'])}</h2>
+        <p>{_esc(b['tagline'])}</p>
+        <ul>{hl_html}</ul>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="{_esc(itch_url)}" target="_blank" rel="noopener noreferrer">Get Complete 50-Map ZIP ($2.99)</a>
+          <a class="btn" href="./{_esc(b['demoFile'])}" target="_blank" rel="noopener noreferrer">Preview 3-Map PDF</a>
+        </div>
+      </div>
+      <div>
+        <img class="spread-img" src="./images/pocket_dungeon_spread.png" alt="Pocket Dungeon Rulebook and Map #01 sample spread" />
+      </div>
+    </section>
+
+    <footer class="ecosystem">
+      <span>Each-Touch Creative Ecosystem · Printable Games, Dev Kits &amp; Tools</span>
+      <div class="eco-links">
+        <a href="https://each-touch.github.io/forge-tools/" target="_blank" rel="noopener noreferrer">Forge Tools</a>
+        <a href="https://each-touch.github.io/asset-lab/" target="_blank" rel="noopener noreferrer">Asset Lab</a>
+        <a href="https://each-touch.github.io/dev-kits/" target="_blank" rel="noopener noreferrer">Dev Kits</a>
+        <a href="https://each-touch.github.io/" target="_blank" rel="noopener noreferrer">Each-Touch Arcade</a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
+"""
+    (DOCS / "index.html").write_text(page_html, encoding="utf-8")
+
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    (DOCS / "sitemap.xml").write_text(
+        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f'  <url>\n    <loc>{BASE_URL}/</loc>\n    <lastmod>{today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n',
+        encoding="utf-8",
+    )
+    (DOCS / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n", encoding="utf-8")
+    print(f"Built Print-Play Lab showcase -> {DOCS / 'index.html'}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

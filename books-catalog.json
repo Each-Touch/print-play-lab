@@ -1,0 +1,21 @@
+[
+  {
+    "slug": "pocket-dungeon-50",
+    "name": "Pocket Dungeon: 50 Solo Roll-and-Write Maps",
+    "shortTitle": "Pocket Dungeon: 50 Solo Roll-and-Write Crawl Maps (Print & Play PDF)",
+    "tagline": "50 mathematically verified solvable 11x11 solo dungeon maps across 5 biomes. Includes US Letter Color, Ink-Saver B&W, A4 B&W & Free 3-Map Sample PDF.",
+    "category": "Solo Roll & Write",
+    "priceUsd": 2.99,
+    "maps": 50,
+    "demoMaps": 3,
+    "itchUrl": "",
+    "demoFile": "demos/pocket-dungeon-free-3-maps-demo.pdf",
+    "status": "live",
+    "launchedAt": "2026-11-22",
+    "highlights": [
+      "50 unique BFS-verified solvable dungeon crawl sheets across 5 biomes (15-min solo sessions with 2d6 + pencil)",
+      "3 ready-to-print editions: US Letter Full Color, US Letter Ink-Saver B&W, and Global A4 Ink-Saver B&W (52 pages each)",
+      "Includes 1-page illustrated rulebook + progressive 1-star to 5-star difficulty + Zero Generative AI"
+    ]
+  }
+]
