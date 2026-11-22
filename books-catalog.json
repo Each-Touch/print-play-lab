@@ -7,15 +7,40 @@
     "category": "Solo Roll & Write",
     "priceUsd": 2.99,
     "maps": 50,
+    "unitLabel": "Maps",
+    "pages": 52,
     "demoMaps": 3,
     "itchUrl": "https://each-touch.itch.io/pocket-dungeon-50-maps",
     "demoFile": "demos/pocket-dungeon-free-3-maps-demo.pdf",
+    "spreadImage": "images/pocket_dungeon_spread.png",
     "status": "live",
     "launchedAt": "2026-11-22",
     "highlights": [
       "50 unique BFS-verified solvable dungeon crawl sheets across 5 biomes (15-min solo sessions with 2d6 + pencil)",
       "3 ready-to-print editions: US Letter Full Color, US Letter Ink-Saver B&W, and Global A4 Ink-Saver B&W (52 pages each)",
       "Includes 1-page illustrated rulebook + progressive 1-star to 5-star difficulty + Zero Generative AI"
+    ]
+  },
+  {
+    "slug": "starship-salvage-40",
+    "name": "Starship Salvage: 40 Solo Sci-Fi Roll-and-Write Deck Plans",
+    "shortTitle": "Starship Salvage: 40 Solo Sci-Fi Roll-and-Write Deck Plans (Print & Play PDF)",
+    "tagline": "40 mathematically verified solvable 12x10 derelict starship deck plans across 4 ship classes. Includes US Letter Color, Ink-Saver B&W, A4 B&W & Free 3-Deck Sample PDF.",
+    "category": "Solo Sci-Fi Roll & Write",
+    "priceUsd": 2.99,
+    "maps": 40,
+    "unitLabel": "Decks",
+    "pages": 42,
+    "demoMaps": 3,
+    "itchUrl": "",
+    "demoFile": "demos/starship-salvage-40-free-demo-3maps.pdf",
+    "spreadImage": "images/starship_salvage_spread.png",
+    "status": "ready",
+    "launchedAt": "2026-11-22",
+    "highlights": [
+      "40 unique BFS-verified derelict ship deck plans across 4 classes (Mining Frigate, Research Cruiser, Dreadnought Hulk, Colony Ark)",
+      "Tactical O2, Shield, Power & Hull management in 15-minute solo 2d6 + pencil sessions",
+      "3 ready-to-print editions: US Letter Color, US Letter Ink-Saver B&W, and Global A4 Ink-Saver B&W (42 pages each) + Zero Generative AI"
     ]
   }
 ]

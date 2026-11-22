@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Each-Touch Print-Play Lab — Solo Roll &amp; Write Tabletop Games &amp; Verified Puzzle PDFs</title>
-  <meta name="description" content="Printable solo roll-and-write dungeon crawl maps and verified logic puzzle books (US Letter &amp; A4, Color &amp; Ink-Saver B&amp;W). Download free 3-map sample PDF." />
+  <meta name="description" content="Printable solo roll-and-write tabletop games and verified logic puzzle books (US Letter &amp; A4, Color &amp; Ink-Saver B&amp;W). Download free 3-sheet sample PDFs." />
   <link rel="canonical" href="https://each-touch.github.io/print-play-lab/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f59e0b'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-weight='800' font-size='14' fill='%230b0f14'%3EPP%3C/text%3E%3C/svg%3E" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Pocket Dungeon: 50 Solo Roll-and-Write Crawl Maps (Print & Play PDF)", "description": "50 mathematically verified solvable 11x11 solo dungeon maps across 5 biomes. Includes US Letter Color, Ink-Saver B&W, A4 B&W & Free 3-Map Sample PDF.", "brand": {"@type": "Brand", "name": "Each-Touch Print-Play Lab"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2.99", "availability": "https://schema.org/InStock", "url": "https://each-touch.itch.io/pocket-dungeon-50-maps"}}</script>
+  <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Product", "name": "Starship Salvage: 40 Solo Sci-Fi Roll-and-Write Deck Plans (Print & Play PDF)", "description": "40 mathematically verified solvable 12x10 derelict starship deck plans across 4 ship classes. Includes US Letter Color, Ink-Saver B&W, A4 B&W & Free 3-Deck Sample PDF.", "brand": {"@type": "Brand", "name": "Each-Touch Print-Play Lab"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2.99", "availability": "https://schema.org/InStock", "url": "https://each-touch.itch.io/"}}, {"@context": "https://schema.org", "@type": "Product", "name": "Pocket Dungeon: 50 Solo Roll-and-Write Crawl Maps (Print & Play PDF)", "description": "50 mathematically verified solvable 11x11 solo dungeon maps across 5 biomes. Includes US Letter Color, Ink-Saver B&W, A4 B&W & Free 3-Map Sample PDF.", "brand": {"@type": "Brand", "name": "Each-Touch Print-Play Lab"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2.99", "availability": "https://schema.org/InStock", "url": "https://each-touch.itch.io/pocket-dungeon-50-maps"}}]</script>
   <style>
     :root {
       --bg: #0b0f14; --surface: #131922; --panel: #19212c; --border: rgba(148,163,184,0.18);
@@ -39,6 +39,7 @@
     .stat strong { display: block; color: var(--amber); font-size: 15px; }
     .stat span { font-size: 12px; color: var(--sec); }
     .section-title { margin: 22px 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }
+    .catalog-stack { display: flex; flex-direction: column; gap: 16px; }
     .book-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 18px; align-items: center; }
     .book-card h2 { margin: 6px 0 8px; font-size: 20px; }
     .book-card p { margin: 0 0 10px; color: var(--sec); }
@@ -49,7 +50,7 @@
     @media (max-width: 860px) {
       .hero, .book-card { grid-template-columns: 1fr; padding: 16px; }
     }
-  </style>
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -65,22 +66,42 @@
     <section class="hero">
       <div>
         <span class="badge badge-amber">Printable Solo Tabletop &amp; Logic Puzzle Books</span>
-        <h1>Print, Grab 2d6 &amp; Play: Verified Solo Crawl &amp; Puzzle PDFs</h1>
-        <p>Every map and puzzle book is procedurally generated and mathematically verified solvable—bundled in Color + Ink-Saver B&amp;W for both US Letter and Global A4 printers.</p>
+        <h1>Print, Grab 2d6 &amp; Play: Verified Solo Roll-and-Write PDFs</h1>
+        <p>Every map, deck plan, and puzzle book is procedurally generated and mathematically verified solvable—bundled in Color + Ink-Saver B&amp;W for both US Letter and Global A4 printers.</p>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="https://each-touch.itch.io/pocket-dungeon-50-maps" target="_blank" rel="noopener noreferrer">Buy Full 50-Map Pack ($2.99)</a>
-          <a class="btn" href="./demos/pocket-dungeon-free-3-maps-demo.pdf" download>Download Free 3-Map Sample PDF</a>
+          <a class="btn btn-primary" href="https://each-touch.itch.io/" target="_blank" rel="noopener noreferrer">New Release: Starship Salvage ($2.99)</a>
+          <a class="btn" href="./demos/starship-salvage-40-free-demo-3maps.pdf" download>Download Free 3-Sheet Sample PDF</a>
         </div>
       </div>
       <div class="hero-stats">
-        <div class="stat"><strong>50 Maps</strong><span>5 unique dungeon biomes</span></div>
-        <div class="stat"><strong>3 Editions</strong><span>Letter Color, Letter B&amp;W, A4 B&amp;W</span></div>
+        <div class="stat"><strong>2 Books · 90 Sheets</strong><span>Dungeon &amp; Sci-Fi solo PnP lines</span></div>
+        <div class="stat"><strong>3 Editions Each</strong><span>Letter Color, Letter B&amp;W, A4 B&amp;W</span></div>
         <div class="stat"><strong>BFS Verified</strong><span>100% guaranteed solvable paths</span></div>
-        <div class="stat"><strong>Free Demo</strong><span>3 complete playable sample sheets</span></div>
+        <div class="stat"><strong>Free Demos</strong><span>3 complete playable sheets per book</span></div>
       </div>
     </section>
 
-    <div class="section-title">Flagship Solo Roll &amp; Write Release</div>
+    <div class="section-title">Print &amp; Play Catalog (2 Releases)</div>
+    <div class="catalog-stack">
+      
+    <section class="book-card">
+      <div>
+        <span class="badge badge-cyan">Solo Sci-Fi Roll &amp; Write · $2.99 USD</span>
+        <h2>Starship Salvage: 40 Solo Sci-Fi Roll-and-Write Deck Plans (Print &amp; Play PDF)</h2>
+        <p>40 mathematically verified solvable 12x10 derelict starship deck plans across 4 ship classes. Includes US Letter Color, Ink-Saver B&amp;W, A4 B&amp;W &amp; Free 3-Deck Sample PDF.</p>
+        <ul><li>40 unique BFS-verified derelict ship deck plans across 4 classes (Mining Frigate, Research Cruiser, Dreadnought Hulk, Colony Ark)</li><li>Tactical O2, Shield, Power &amp; Hull management in 15-minute solo 2d6 + pencil sessions</li><li>3 ready-to-print editions: US Letter Color, US Letter Ink-Saver B&amp;W, and Global A4 Ink-Saver B&amp;W (42 pages each) + Zero Generative AI</li></ul>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="https://each-touch.itch.io/" target="_blank" rel="noopener noreferrer">Get Full 40-Decks ZIP ($2.99)</a>
+          <a class="btn" href="./demos/starship-salvage-40-free-demo-3maps.pdf" target="_blank" rel="noopener noreferrer">Free 3-Sheet Sample PDF</a>
+          <a class="btn" href="./starship-salvage-40/">Book Details</a>
+        </div>
+      </div>
+      <div>
+        <img class="spread-img" src="./images/starship_salvage_spread.png" alt="Starship Salvage: 40 Solo Sci-Fi Roll-and-Write Deck Plans sample spread preview" />
+      </div>
+    </section>
+    
+
     <section class="book-card">
       <div>
         <span class="badge badge-cyan">Solo Roll &amp; Write · $2.99 USD</span>
@@ -88,14 +109,17 @@
         <p>50 mathematically verified solvable 11x11 solo dungeon maps across 5 biomes. Includes US Letter Color, Ink-Saver B&amp;W, A4 B&amp;W &amp; Free 3-Map Sample PDF.</p>
         <ul><li>50 unique BFS-verified solvable dungeon crawl sheets across 5 biomes (15-min solo sessions with 2d6 + pencil)</li><li>3 ready-to-print editions: US Letter Full Color, US Letter Ink-Saver B&amp;W, and Global A4 Ink-Saver B&amp;W (52 pages each)</li><li>Includes 1-page illustrated rulebook + progressive 1-star to 5-star difficulty + Zero Generative AI</li></ul>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="https://each-touch.itch.io/pocket-dungeon-50-maps" target="_blank" rel="noopener noreferrer">Get Complete 50-Map ZIP ($2.99)</a>
-          <a class="btn" href="./demos/pocket-dungeon-free-3-maps-demo.pdf" target="_blank" rel="noopener noreferrer">Preview 3-Map PDF</a>
+          <a class="btn btn-primary" href="https://each-touch.itch.io/pocket-dungeon-50-maps" target="_blank" rel="noopener noreferrer">Get Full 50-Maps ZIP ($2.99)</a>
+          <a class="btn" href="./demos/pocket-dungeon-free-3-maps-demo.pdf" target="_blank" rel="noopener noreferrer">Free 3-Sheet Sample PDF</a>
+          <a class="btn" href="./pocket-dungeon-50/">Book Details</a>
         </div>
       </div>
       <div>
-        <img class="spread-img" src="./images/pocket_dungeon_spread.png" alt="Pocket Dungeon Rulebook and Map #01 sample spread" />
+        <img class="spread-img" src="./images/pocket_dungeon_spread.png" alt="Pocket Dungeon: 50 Solo Roll-and-Write Maps sample spread preview" />
       </div>
     </section>
+    
+    </div>
 
     <footer class="ecosystem">
       <span>Each-Touch Creative Ecosystem · Printable Games, Dev Kits &amp; Tools</span>
