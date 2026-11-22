@@ -8,3 +8,8 @@
    - itch.io `Short description` 严格限制 `1–120` 字符，超长会导致后台弹出校验遮罩并中断文件上传流程，脚本需硬断言 `len(short_text) <= 120`；
    - itch.io 必须先选 `Paid` 才会展开各文件行的 `input[name$="[demo]"]` 复选框，然后再精准匹配试玩 PDF 行打勾；
    - Chromium CDP `Page.printToPDF` 配合 `@page { margin: 0; }` 与固定尺寸 `.sheet` 能做到 `52 / 52 / 52 / 5` 页 100% 精确无溢页。
+6. **2026-11-22 (16:00) 第 2 本《Starship Salvage》实测补充**：
+   - itch.io `/game/new` 的 `Classification` 使用 Selectize 控件，需先点 `.classification_picker .selectize-input` 再点 `[data-value='physical_game']`；`Public` 单选框在首次创建保存（Draft）前默认 `disabled`，首次保存跳转到 `/game/edit/<id>` 后方可切换 `Public`；
+   - itch.io `/game/edit/<id>` 页面存在上下两个可见 `button.save_btn`，`ego-browser` 需用 `css=button.save_btn >> nth=0` 避免选择器歧义；
+   - 首书 `pocket-dungeon-50` 实盘来源数据证实 `tag-no-ai`、`tag-solo-rpg`、`tag-singleplayer` 与 `physical-games/newest` 是核心自然流量入口，新书务必通过 `.tag_input` Selectize 实例挂载对应官方标签；
+   - 12×10 宽比例网格在 A4（`210mm` 较 Letter 窄）下将 `.map-canvas-wrap` 限制在 `max-height: 4.95in`，可确保 US Letter 与 A4 均保持精确 42 页不溢出。

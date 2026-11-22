@@ -32,10 +32,10 @@
     "unitLabel": "Decks",
     "pages": 42,
     "demoMaps": 3,
-    "itchUrl": "",
+    "itchUrl": "https://each-touch.itch.io/starship-salvage-40",
     "demoFile": "demos/starship-salvage-40-free-demo-3maps.pdf",
     "spreadImage": "images/starship_salvage_spread.png",
-    "status": "ready",
+    "status": "live",
     "launchedAt": "2026-11-22",
     "highlights": [
       "40 unique BFS-verified derelict ship deck plans across 4 classes (Mining Frigate, Research Cruiser, Dreadnought Hulk, Colony Ark)",
